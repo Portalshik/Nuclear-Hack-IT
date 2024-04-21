@@ -8,7 +8,7 @@ parser.add_argument("--show", help="Show result", action="store_true", default=F
 args = parser.parse_args()
 print(args)
 
-model = YOLO("best.pt" if args.version == 1 else "best1.pt")
+model = YOLO("app/models/best.pt" if args.version == 1 else "app/models/best1.pt" if args.version == 2 else None)
 res = model.predict(args.source, save=True)
 
 if args.show:
