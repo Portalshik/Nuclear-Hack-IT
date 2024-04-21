@@ -3,11 +3,11 @@ from flask import Flask, render_template, request, send_file
 from ultralytics import YOLO
 
 app = Flask(__name__)
-model = YOLO('best1.pt')
+model = YOLO('models/best1.pt')
 
 
 @app.route('/', methods=['GET', 'POST'])
-async def index():
+def index():
     if request.method == 'GET':
         return render_template('index.html')
     file = request.files['file']
